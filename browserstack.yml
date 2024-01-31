@@ -1,7 +1,5 @@
-# userName: jeikeerthivasanp_iQrKzH
-# accessKey: fr4UqqQxes7p5CCg84gL
-userName: boyapatiteja_Qjx1kw
-accessKey: stQBWTjaxpyyRbcn4ydC
+userName: USER_NAME
+accessKey: KEY
 platforms:
   - os: OS X
     osVersion: Ventura
