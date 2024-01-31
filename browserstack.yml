@@ -1,0 +1,30 @@
+# userName: jeikeerthivasanp_iQrKzH
+# accessKey: fr4UqqQxes7p5CCg84gL
+userName: boyapatiteja_Qjx1kw
+accessKey: stQBWTjaxpyyRbcn4ydC
+platforms:
+  - os: OS X
+    osVersion: Ventura
+    browserName: chrome
+    browserVersion: latest
+
+  - os: OS X
+    osVersion: Ventura
+    browserName: playwright-webkit
+    browserVersion: latest
+
+  - os: OS X
+    osVersion: Ventura
+    browserName: playwright-firefox
+    browserVersion: latest
+
+browserstackLocal: true
+parallelsPerPlatform: 1
+buildName: BrowserStack Application
+buildIdentifier: ${BUILD_NUMBER}
+projectName: Test Jenkins Application
+debug: true
+networkLogs: true
+consoleLogs: info
+framework: robot
+logLevel: debug
