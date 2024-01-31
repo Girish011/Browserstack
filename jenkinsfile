@@ -1,0 +1,31 @@
+pipeline {
+    agent {
+        kubernetes {
+            defaultContainer 'docker-jenkins-tdh-qa'
+            inheritFrom 'tdh-qa-jenkins-runner'
+            yamlFile 'pod.yml'
+            showRawYaml false
+        }
+    }
+    stages {
+        stage('installs') {
+            steps {
+                script {
+                    browserstack('a012e005-0788-4019-ace0-688be592f2ef') {
+                        BROWSERSTACK_SERVER = "http://${BROWSERSTACK_USERNAME}:${BROWSERSTACK_ACCESS_KEY}@hub-cloud.browserstack.com/wd/hub"
+                        sh 'apt update'
+                        sh 'apt install -y python3-pip'
+                        sh 'apt-get install -y nodejs'
+                        sh 'pip3 install robotframework-browser'
+                        sh 'rfbrowser init'
+                        sh 'pip3 install browserstack-sdk'
+                        sh 'pip3 install robotframework-pabot'
+                        sh 'pip3 install robotframework-seleniumlibrary'
+                        sh 'pip3 install robotframework-appiumlibrary'
+                        sh 'browserstack-sdk robot src/tests/web/member'
+                    }
+                }
+            }
+        }
+    }
+}
